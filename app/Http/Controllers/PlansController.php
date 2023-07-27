@@ -19,6 +19,11 @@ class PlansController extends Controller
 
     public function create(Request $request)
     {
-        $this->plansService->create($request->all());
+        $this->plansService->create(
+            $request->input('planName'),
+            $request->input('label'),
+            $request->input('description'),
+            $request->input('typePlan')
+        );
     }
 }
