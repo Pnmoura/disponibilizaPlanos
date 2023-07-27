@@ -8,13 +8,17 @@ use App\Models\Plans;
 
 class PlansService
 {
-    public function create(array $request)
-    {
+    public function create(
+        string $planName,
+        string $label,
+        string $description,
+        string $typePlan
+    ) {
         $plan = new Plans();
-        $plan->planName = $request['planName'];
-        $plan->label = $request['label'];
-        $plan->description = $request['description'];
-        $plan->typePlan = $request['typePlan'];
+        $plan->planName = $planName;
+        $plan->label = $label;
+        $plan->description = $description;
+        $plan->typePlan = $typePlan;
         $plan->save();
     }
 }
