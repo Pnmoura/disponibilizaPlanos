@@ -11,3 +11,7 @@ Route::prefix('plans')->group(function () {
    Route::name('plans.create')->post('/', 'PlansController@create');
    Route::name('plans.filter')->get('/', 'PlansController@filter');
 });
+
+Route::prefix('address')->group(function () {
+    Route::name('address.create')->post('/', 'AddressController@create');
+});
