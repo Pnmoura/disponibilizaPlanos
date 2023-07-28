@@ -30,11 +30,21 @@ class PlansController extends Controller
 
     /**
      * @var int $id
+     * @var string $label
+     * @var string $typePlan
      */
     public function filter(Request $request)
     {
+        $id = $request->query('id');
+        $label = $request->query('label');
+        $typePlan = $request->query('typePlan');
+
         $plans = Plans::select()
-            ->where('id', '=', $request->query('id'))
+            ->where(function ($query) use ($id, $label, $typePlan) {
+                $query->orWhere('id', $id)
+                    ->orWhere('label', 'LIKE', "%$label%")
+                    ->orWhere('typePlan', $typePlan);
+            })
             ->get();
 
         return $plans;
