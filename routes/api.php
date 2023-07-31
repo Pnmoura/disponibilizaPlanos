@@ -15,3 +15,8 @@ Route::prefix('plans')->group(function () {
 Route::prefix('address')->group(function () {
     Route::name('address.create')->post('/', 'AddressController@create');
 });
+
+Route::prefix('availability')->group(function () {
+    Route::name('availability.create')->post('/', 'AvailabilityPlansController@create');
+    Route::name('availability.show')->get('/', 'AvailabilityPlansController@show');
+});
