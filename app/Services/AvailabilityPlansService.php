@@ -13,6 +13,7 @@ class AvailabilityPlansService
      */
     public function getPlans(string $postalCode)
     {
+        echo ("Viabilidades técnicas disponiveis para o cep $postalCode: ");
 
         return AvailabilityPlans::select('availabilityPlans.id', 'plans.planName', 'plans.label', 'address.streetname', 'address.postalcode', 'address.neighborhood', 'address.city', 'address.state')
             ->join('plans', 'plans.id', '=', 'availabilityPlans.plan_id')

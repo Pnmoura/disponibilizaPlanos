@@ -26,6 +26,12 @@ class PlansController extends Controller
             $request->input('description'),
             $request->input('typePlan')
         );
+
+        if (http_response_code(200)) {
+            die("Plano criado com sucesso");
+        } else {
+            die("Verifique as informações passadas.");
+        }
     }
 
     /**
