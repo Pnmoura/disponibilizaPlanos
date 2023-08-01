@@ -29,5 +29,8 @@ class AddressController extends Controller
             $request->input('state'),
             $request->input('ibgecode')
         );
+        if (http_response_code(200)) {
+            die("Endereço criado com sucesso");
+        }
     }
 }

@@ -24,4 +24,5 @@ class AvailabilityPlansController extends Controller
 
         return ($availabilityPlansService);
     }
+
 }
